@@ -1,5 +1,6 @@
 # jeanneau-cecile-3WAProject
-GRADUATION PROJECT
+GRADUATION PROJECT :
+My Book made with PHP, SQL (MySQL), JAVASCRIPT, HTML & CSS
 
 # PROTECTED INTELLECTUAL PROPERTY for all graphic works :
 - photography
