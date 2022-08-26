@@ -1,0 +1,7 @@
+/ HomepageController:index
+/projets ProjectController:index
+/projets/* ProjectController:show
+/a-propos AboutController:index
+/contact ContactController:index
+/admin AdminController:index
+/admin/* AdminController:show
