@@ -10,7 +10,7 @@
             
             $route = [];
             $routeSplit = explode("/", $request); 
-            // spell $route founded inside routes.txt in an array through / symbol through autoload.php
+            // spell/parse $route founded inside routes.txt in an array through / symbol through autoload.php
             $route["path"] = "/".$routeSplit[1];
             
             if(count($routeSplit)>2) {
