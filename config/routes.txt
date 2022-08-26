@@ -1,4 +1,4 @@
-/ HomepageController:index
+/ PageController:index
 /projets ProjectController:index
 /projets/* ProjectController:show
 /a-propos AboutController:index
