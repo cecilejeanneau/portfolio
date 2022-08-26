@@ -1,4 +1,4 @@
-<? php
+<?php
 /**
  * @author : Gaellan
  * @contributor : JEANNEAU Cécile
@@ -10,7 +10,7 @@
     require "./controllers/AuthenticationController.php";
     require "./controllers/AdminController.php";
     require "./controllers/ContactController.php";
-    require "./services/Router.php";
+    require "services/Router.php";
     
     $routes = [];
     
@@ -67,6 +67,5 @@
         fclose($handle); 
         // don't forget to close the file !!
         }
-    }
     
 ?>

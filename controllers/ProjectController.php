@@ -1,6 +1,6 @@
-<? php
+<?php
 
-    class PageController {
+    class ProjectController {
         
         public function index(): void {
             $page = "project_index";
