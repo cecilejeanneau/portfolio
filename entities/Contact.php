@@ -7,7 +7,7 @@
         private string $content;
         private string $email;
         private string $tel;
-        private string $slug;
+        private int $media_id;
         
         public function __construct() {
             

@@ -1,7 +1,7 @@
 <?php
 /**
  * @author : Gaellan
- * @contributor : JEANNEAU Cécile
+ * @author : JEANNEAU Cécile
  */
  
     class Router {

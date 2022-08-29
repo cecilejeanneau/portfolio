@@ -1,7 +1,7 @@
 <?php
 /**
  * @author : Gaellan
- * @contributor : JEANNEAU Cécile
+ * @author : JEANNEAU Cécile
  */
  
 //  Then think to require here managers too
