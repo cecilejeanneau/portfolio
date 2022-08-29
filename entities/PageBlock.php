@@ -21,13 +21,13 @@
         public function getName(): string {
             return $this->name;
         }
-        public function getPageId(): string {
+        public function getPageId(): int {
             return $this->page_id;
         }
-        public function getMediaId(): string {
+        public function getMediaId(): int {
             return $this->media_id;
         }
-        public function getPageBlockTypeId(): string {
+        public function getPageBlockTypeId(): int {
             return $this->page_block_type_id;
         }
         // get informations and display them for example

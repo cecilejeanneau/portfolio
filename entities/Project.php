@@ -26,10 +26,10 @@
         public function getResume(): string {
             return $this->resume;
         }
-        public function getMediaId(): string {
+        public function getMediaId(): int {
             return $this->media_id;
         }
-        public function getPageTypeId(): string {
+        public function getPageTypeId(): int {
             return $this->page_type_id;
         }
         public function getSlug(): string {
