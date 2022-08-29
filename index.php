@@ -8,4 +8,5 @@
     
     $router->searchRoute($routes, $request);
     
+    // then don't forget the try catch !
 ?>
