@@ -1,6 +1,6 @@
 <?php
 
-    class AuthenticationController
+    class AuthenticationController extends AbstractController
     {
         public function signUp(array $post = null): void {
             if($post !== null && isset($post["form_name"]) && $post["form_name"] === "sign_up_form")
@@ -17,7 +17,7 @@
                 $page = "sign-up";
                 $action = "index.php?route=admin";
                 $formName = "sign_up_form";
-                require "./templates/layout.phtml";   
+                // require "./templates/layout.phtml";   
             }
         }
         
@@ -34,7 +34,7 @@
                 $page = "log-in";
                 $action = "index.php?route=admin/*";
                 $formName = "log_in_form";
-                require "./templates/layout.phtml";
+                // require "./templates/layout.phtml";
             }
         }
     }

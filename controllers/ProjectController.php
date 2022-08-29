@@ -3,13 +3,11 @@
     class ProjectController {
         
         public function index(): void {
-            $page = "project_index";
-            require "./templates/layout.phtml";
+            $this->render($page = "project_index");
         }
         
         public function show(string $slug): void {
-            $page = "project_show";
-            require "./templates/layout.phtml";
+            $this->render($page = "project_show");
         }
         
     }

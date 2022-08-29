@@ -6,12 +6,12 @@
  
 //  Then think to require here managers too
     require "./controllers/AbstractController.php";
+    require "./services/Router.php";
     require "./controllers/PageController.php";
     require "./controllers/ProjectController.php";
     require "./controllers/AuthenticationController.php";
     require "./controllers/AdminController.php";
     require "./controllers/ContactController.php";
-    require "services/Router.php";
     
     $routes = [];
     

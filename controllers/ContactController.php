@@ -1,10 +1,9 @@
 <?php
 
-    class ContactController {
+    class ContactController extends AbstractController {
             
             public function index(): void {
-                $page = "contact";
-                require "./templates/layout.phtml";
+                $this->render($page = "contact");
             }
             
         }
