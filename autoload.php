@@ -5,6 +5,7 @@
  */
  
 //  Then think to require here managers too
+    require "./controllers/AbstractController.php";
     require "./controllers/PageController.php";
     require "./controllers/ProjectController.php";
     require "./controllers/AuthenticationController.php";

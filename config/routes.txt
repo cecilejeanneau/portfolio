@@ -3,5 +3,5 @@
 /projets/* ProjectController:show
 /a-propos AboutController:index
 /contact ContactController:index
-/admin AdminController:render
+/admin AdminController:index
 /admin/* AdminController:show

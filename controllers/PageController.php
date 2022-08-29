@@ -1,10 +1,11 @@
 <?php
 
-    class PageController {
+    // require "AbstractController.php";
+
+    class PageController extends AbstractController {
         
         public function index(): void {
-            $page = "page";
-            require "./templates/layout.phtml";
+            $this->render($page = "page");
         }
         
     }
