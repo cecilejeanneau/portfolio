@@ -16,6 +16,9 @@
             
         }
         
+        public function getId(): int {
+            return $this->id;
+        }
         public function getUsername(): string {
             return $this->username;
         }
@@ -27,6 +30,9 @@
         }
         // get informations and display them for example
         
+        public function setId(): void {
+            $this->id = $id;
+        }
         public function setUsername(): void {
             $this->username = $username;
         }
