@@ -1,0 +1,21 @@
+/*** FORM STYLE ***/
+
+textarea {
+  resize: none;
+}
+
+textarea:invalid {
+  border: 0.1rem dotted red;
+}
+
+textarea:valid {
+  border: 0.05rem solid lightgreen;
+}
+
+input:invalid {
+  border: 0.1rem dotted red;
+}
+
+input:valid {
+  border: 0.05rem solid lightgreen;
+}

@@ -1,1 +1,27 @@
 <h1>This is the <?= $page ?> </h1>
+
+<!--HERE THE AUTHENTICATION FORM-->
+
+<form action="" method="POST" enctype="multipart/form-data" name="contact">
+    <input type="hidden" name="" value="" />
+    <!--accessibility-->
+    
+    <h1>Log In</h1>
+    
+    <input type="text" name="name" placeholder="Enter your name and society name *" required/>
+  
+    <input type="text" name="email" placeholder="Your Email *" required/>
+  
+    <input type="tel" name="phone" placeholder="Your phone number *" pattern="[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}-[0-9]{2}" value="disabled" disabled/>
+        <small>Format: 06-06-06-06-06</small>
+  
+    <textarea name="content" rows="30" cols="100" minlength="100" maxlength="3000" required>Your message, your offer, details ...</textarea>
+  
+  
+    <input type="file" name="media"/>
+  
+    <input type="submit" name="submit" value="Send"/>
+  
+</form>
+
+<?php var_dump($_POST); ?>
