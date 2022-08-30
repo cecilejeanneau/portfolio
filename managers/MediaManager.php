@@ -37,8 +37,7 @@
             // returns the result in an associative array
             
             try {
-                if(!is_null($result))
-                {
+                if(!is_null($result)) {
                     return new Media($result['id'], $result['name'], $result['description']    , $result['alt'], $result['filename'], $result['category'],     $result['file_type']);
                 } else {
                     throw new Exception("This media doesn't exist");
@@ -58,8 +57,7 @@
             $result = $query->fetch(PDO::FETCH_ASSOC);
             // returns the result in an associative array
             
-            if(!is_null($result))
-            {
+            if(!is_null($result)) {
                 return new Media($result['id'], $result['name'], $result['description'], $result['alt'], $result['filename'], $result['category'], $result['file_type']);
             }
             

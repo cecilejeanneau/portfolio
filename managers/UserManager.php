@@ -35,13 +35,15 @@
             $query->execute($parameters);
             $result = $query->fetch(PDO::FETCH_ASSOC);
             
-            if(!is_null($result))
-            {
-                return new User($result['id'], $result['username'], $result['password'], $result['email']);
+            try {
+                if(!is_null($result)) {
+                    return new User($result['id'], $result['username'], $result['password'], $result['email']);
+                } else {
+                    throw new Exception("This user doesn't exist");
+                }
+            } catch (Exception $e) {
+                echo "Exception : ".$e->getMessage();
             }
-            
-            echo "This user doesn't exist";
-            
         }
         
         public function updateUser(User $user): User {
