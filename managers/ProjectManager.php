@@ -4,10 +4,6 @@
 
     class ProjectManager extends AbstractManager {
         
-        private function dbConnect(){
-            $this->__construct();
-        }
-        
         // A PROJECT IS A PAGE SO A PROJECTMANAGER IS NOT REALLY NEEDED
         
         // // CRUD : CREATE READ UPDATE DELETE

@@ -4,10 +4,6 @@
 
     class PageManager extends AbstractManager {
         
-        private function dbConnect(){
-            $this->__construct();
-        }
-        
         // CRUD : CREATE READ UPDATE DELETE
         public function createPage(Page $page): Page {
             // CREATE

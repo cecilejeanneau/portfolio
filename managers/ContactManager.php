@@ -4,10 +4,6 @@
 
     class ContactManager extends AbstractManager {
         
-        private function dbConnect(){
-            $this->__construct();
-        }
-        
         // CRUD : CREATE READ UPDATE DELETE
         public function createContact(Contact $contact): Contact {
             // CREATE
@@ -38,13 +34,17 @@
             $query->execute($parameters);
             $result = $query->fetch(PDO::FETCH_ASSOC);
             // returns the result in an associative array
-            
-            if(!is_null($result))
-            {
-                return new Contact($result['id'], $result['name'], $result['content'], $result['email'], $result['tel'], $result['media_id']);
+            try {
+                if(!is_null($result))
+                {
+                    return new Contact($result['id'], $result['name'], $result['content'], $result['email'], $result['tel'], $result['media_id']);
+                } else {
+                    throw new Exception("This contact doesn't exist");
+                }
+            } catch (Exception $e) {
+                //  if there's an error
+                echo "Exception : ".$e->getMessage();
             }
-            
-            echo "This contact doesn't exist";
             
         }
         

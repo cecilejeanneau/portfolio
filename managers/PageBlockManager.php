@@ -4,10 +4,6 @@
 
     class PageBlockManager extends AbstractManager {
         
-        private function dbConnect(){
-            $this->__construct();
-        }
-        
         // CRUD : CREATE READ UPDATE DELETE
         public function createPageBlock(PageBlock $page_block): PageBlock {
             // CREATE

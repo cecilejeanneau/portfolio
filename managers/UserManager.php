@@ -4,8 +4,9 @@
 
     class UserManager extends AbstractManager {
         
-        private function dbConnect(){
-            $this->__construct();
+        // IDENTITY VERIFICATION
+        public function  validId(User $user): User {
+            // ...
         }
         
         // CRUD : CREATE READ UPDATE DELETE

@@ -4,10 +4,6 @@
 
     class MediaManager extends AbstractManager {
         
-        private function dbConnect(){
-            $this->__construct();
-        }
-        
         // CRUD : CREATE READ UPDATE DELETE
         public function createMedia(Media $media): Media {
             // CREATE
@@ -28,6 +24,28 @@
             $media->setId($id);
             return $media;
             
+        }
+        
+        public function getMediaById(string $id): ?Media {
+            // READ
+            $query = $this->db->prepare('SELECT name, description, alt, filename, category, file_type FROM medias WHERE medias.id = :id');
+            $parameters = [
+                'id' => $id
+            ];
+            $query->execute($parameters);
+            $result = $query->fetch(PDO::FETCH_ASSOC);
+            // returns the result in an associative array
+            
+            try {
+                if(!is_null($result))
+                {
+                    return new Media($result['id'], $result['name'], $result['description']    , $result['alt'], $result['filename'], $result['category'],     $result['file_type']);
+                } else {
+                    throw new Exception("This media doesn't exist");
+                }
+            } catch (Exception $e) {
+                echo "Exception : ".$e->getMessage();
+            }
         }
         
         public function getMediaByName(string $name): ?Media {
