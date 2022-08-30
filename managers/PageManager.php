@@ -1,6 +1,6 @@
 <?php
 
-require_once "./managers/AbstractManager.php";
+// require_once "./managers/AbstractManager.php";
 
     class PageManager extends AbstractManager {
         

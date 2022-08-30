@@ -1,1 +1,27 @@
 <h1>This is the <?= $page ?> </h1>
+
+<!--CREATE NEW USER-->
+
+<form action="" method="POST" name="form">
+    <input type="hidden" name="" value="" />
+    <!--accessibility-->
+    
+    <h1>Sign Up</h1>
+    
+  <input type="text" name="username" 
+  placeholder="Enter a username *" required/>
+  
+    <input type="text" name="email" 
+  placeholder="Your email *" required/>
+  
+    <input type="password" name="password" 
+  placeholder="Enter a password *" required/>
+  
+    <input type="submit" name="submit" 
+  value="Sign-up"/>
+  
+</form>
+
+    <p> Already registered? <button><a href="https://cecilejeanneau.sites.3wa.io/jeanneau-cecile-3WAProject/log-in">Log in!</a></button> </p>
+    
+<?php var_dump($_POST); ?>
