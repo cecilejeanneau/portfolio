@@ -1,1 +1,25 @@
 <h1>This is the <?= $page ?> </h1>
+
+<!--HERE THE AUTHENTICATION FORM-->
+
+<form action="" method="POST" name="log-in">
+    
+    <h1>Log In</h1>
+    
+  <input type="text" name="username" 
+  placeholder="username *" required/>
+  
+    <input type="text" name="email" 
+  placeholder="email *" required/>
+  
+    <input type="password" name="password" 
+  placeholder="password *" required/>
+  
+    <input type="submit" name="submit" 
+  value="Log-in"/>
+  
+</form>
+
+    <p> No account? <button><a href="https://cecilejeanneau.sites.3wa.io/jeanneau-cecile-3WAProject/sign-up">Sign up!</a></button> </p>
+
+<?php var_dump($_POST); var_dump($_SESSION);?>

@@ -3,8 +3,15 @@
  * @author : Gaellan
  * @author : JEANNEAU Cécile
  */
- 
-//  Then think to require here managers too
+
+    require "./managers/AbstractManager.php";
+    require "./managers/MediaManager.php";
+    require "./managers/ContactManager.php";
+    require "./managers/PageBlockManager.php";
+    require "./managers/PageManager.php";
+    require "./managers/ProjectManager.php";
+    require "./managers/UserManager.php";
+    
     require "./controllers/AbstractController.php";
     require "./services/Router.php";
     require "./controllers/PageController.php";
