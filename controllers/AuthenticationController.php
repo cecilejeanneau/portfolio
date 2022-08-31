@@ -1,15 +1,36 @@
 <?php
 
-require_once "./managers/UserManager.php";
-
+// require_once "AbstractController.php";
 
     class AuthenticationController extends AbstractController {
         
-        private UserManager $user;
+        public UserManager $user;
+        
+        public function __construct(){
+            $this->user = new UserManager();
+        }
         
         public function index(): void {
             $this->render($page = "log-in");
+            $this->connectUser($_POST);
+            $this->user->getUserByUsername($_POST['username']);
             // method for child class form AbstractController : need to extends
+        }
+        
+        // this method should be the action of the login form
+        public function loginCheck(array $post)
+        {
+            // retrieve the form data from $_POST
+            
+            // check using a manager if the username exists in the database
+            
+                // if yes check if the password is correct
+                
+                    // if its correct, send him to the admin page
+                    // if not, back to the login form with error message
+                
+            // if not return an error
+            
         }
         
         public function show(): void {
@@ -17,24 +38,31 @@ require_once "./managers/UserManager.php";
             // method for child class form AbstractController : need to extends
         }
         
-        public function connectUser(array $post = null): void {
-            // array because that's JSON return from POST
+        public function connectUser(array $post): void {
+            // array because POST return a array
             
                 if(!is_null($_POST["username"]) && isset($_POST["username"])) {
                     // if username is not null and set
+                    
+                            var_dump($_POST['username']);
+                            
                     if(!is_null($_POST["password"]) && isset($_POST["password"]    )) {
                         // if password is not null and set
                         if(!is_null($_POST["email"]) && isset($_POST["email"]))     {
                             // if email is not null and set
-                            $username = $post["username"];
-                            $password = $post["password"];
-                            $email = $post["email"];
+                            $username = $_POST["username"];
+                            $password = $_POST["password"];
+                            $email = $_POST["email"];
+                            
+                            // $user->getUserByUsername($_POST['username']);
                             
                             if($username === $result['username'] && $password === $result['password'] ) {
                                 
-                                echo "welcome".$username.""."you're connected !";
+                                echo "welcome".$username." "."you're connected !";
                                 $routeFound = true;
                                 $request = "/admin";
+                            } else {
+                                echo "not a user";
                             }
                         }
                     }

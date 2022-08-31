@@ -1,13 +1,18 @@
 <?php
 
-// require_once "./managers/AbstractManager.php";
+// require "./entities/User.php";
 
     class UserManager extends AbstractManager {
         
         // IDENTITY VERIFICATION
-        public function  validId(User $user): User {
-            // ...
-        }
+        // public function  validId(User $user): User {
+        //     // ...
+        // }
+        // public User $user;
+        
+        // public function __construct(){
+        //     $this->user = new User();
+        // }
         
         // CRUD : CREATE READ UPDATE DELETE
         public function createUser(User $user): User {
