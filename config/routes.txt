@@ -3,7 +3,7 @@
 /projets/* ProjectController:show
 /a-propos AboutController:index
 /contact ContactController:index
-/log-in AuthenticationController:index
+/login AuthenticationController:index
 /login-check AuthenticationController:loginCheck
 /sign-up AuthenticationController:show
 /admin AdminController:index
