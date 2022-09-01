@@ -5,6 +5,7 @@
 /contact ContactController:index
 /login AuthenticationController:index
 /login-check AuthenticationController:loginCheck
+/login-check-opti AuthenticationController:loginCheckOpti
 /sign-up AuthenticationController:show
 /admin AdminController:index
 /admin/* AdminController:show
