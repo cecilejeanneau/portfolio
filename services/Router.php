@@ -69,4 +69,6 @@
         }
     }
 
+// 	Router->searchRoute( $routes = [0 => ['path' => '/', 'parameter' => FALSE, 'controller' => 'PageController', 'method' => 'index'], 1 => ['path' => '/projets', 'parameter' => FALSE, 'controller' => 'ProjectController', 'method' => 'index'], 2 => ['path' => '/projets', 'parameter' => TRUE, 'controller' => 'ProjectController', 'method' => 'show'], 3 => ['path' => '/a-propos', 'parameter' => FALSE, 'controller' => 'AboutController', 'method' => 'index'], 4 => ['path' => '/contact', 'parameter' => FALSE, 'controller' => 'ContactController', 'method' => 'index'], 5 => ['path' => '/login', 'parameter' => FALSE, 'controller' => 'AuthenticationController', 'method' => 'index'], 6 => ['path' => '/login-check', 'parameter' => FALSE, 'controller' => 'AuthenticationController', 'method' => 'loginCheck'], 7 => ['path' => '/sign-up', 'parameter' => FALSE, 'controller' => 'AuthenticationController', 'method' => 'show'], 8 => ['path' => '/admin', 'parameter' => FALSE, 'controller' => 'AdminController', 'method' => 'index'], 9 => ['path' => '/admin', 'parameter' => TRUE, 'controller' => 'AdminController', 'method' => 'show']], $request = '/login-check' )
+
 ?>

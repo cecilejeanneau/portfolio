@@ -1,7 +1,5 @@
 <?php
 
-// require_once "AbstractController.php";
-
     class AuthenticationController extends AbstractController {
         
         public UserManager $user;
@@ -28,33 +26,22 @@
                     if($_POST['password'] === $result['password']) {
                         // if its correct, send him to the admin page
                         echo "welcome".$username." "."you're connected !";
-                        $routeFound = true;
-                        $request = "/admin";
                     } else {
                         // if not, back to the login form with error message
                         echo "not a user, please login !";
-                        $routeFound = true;
-                        $request = "/login";
                     }
                     
                 } else {
                     // if not return an error
                     echo "not a user, please login !";
-                    $routeFound = true;
-                    $request = "/login";
                 }
             } else {
                 // if not return an error
-                $router = new Router();
-                if(isset($_GET['path'])) {
-                    $request = "/".$_GET['path'];
-                    // var_dump($_GET['path']);
-                } else {
-                    $request = "/login";
-                }
-                $router->searchRoute($routes, $request);
+                
                 echo "please login !";
-                // $this->index();
+                header("Location: https://cecilejeanneau.sites.3wa.io/jeanneau-cecile-3WAProject/login");
+                exit;
+                
                 
             }
             

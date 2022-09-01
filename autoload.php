@@ -4,6 +4,8 @@
  * @author : JEANNEAU Cécile
  */
 
+    $routes = [];
+    
     require "./managers/AbstractManager.php";
     require "./controllers/AbstractController.php";
     
@@ -22,7 +24,7 @@
     require "./controllers/AdminController.php";
     require "./controllers/ContactController.php";
     
-    $routes = [];
+
     
     // Read/Manage the routes config file
     $handle = fopen("config/routes.txt", "r");
