@@ -25,6 +25,17 @@
                     // if yes check if the password is correct
                     if($_POST['password'] === $result['password']) {
                         // if its correct, send him to the admin page
+                        
+                        // session_start();
+                        // //Session START
+                        // $_SESSION['id'] = $result['id'];
+                        // $_SESSION['username'] = $result['username'];
+                        // $_SESSION['email'] = $result['email'];
+                     
+                        header('Location: https://cecilejeanneau.sites.3wa.io/jeanneau-cecile-3WAProject/admin"');
+                        //ADMIN redirection
+                        exit();
+                        
                         echo "welcome".$username." "."you're connected !";
                     } else {
                         // if not, back to the login form with error message
@@ -38,11 +49,9 @@
             } else {
                 // if not return an error
                 
-                echo "please login !";
                 header("Location: https://cecilejeanneau.sites.3wa.io/jeanneau-cecile-3WAProject/login");
+                
                 exit;
-                
-                
             }
             
         }
