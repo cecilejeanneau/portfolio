@@ -1,6 +1,6 @@
 <?php
 
-// require "./entities/User.php";
+require_once "./entities/User.php";
 
     class UserManager extends AbstractManager {
         
@@ -33,7 +33,7 @@
         
         public function getUserByUsername(string $username): ?User {
             // READ
-            $query = $this->db->prepare('SELECT username, password, email FROM users WHERE users.username = :username');
+            $query = $this->db->prepare('SELECT id, username, password, email FROM users WHERE users.username = :username');
             $parameters = [
                 'username' => $username
             ];
@@ -41,13 +41,14 @@
             $result = $query->fetch(PDO::FETCH_ASSOC);
             
             try {
-                if(!is_null($result)) {
+                if($result) {
                     return new User($result['id'], $result['username'], $result['password'], $result['email']);
                 } else {
                     throw new Exception("This user doesn't exist");
                 }
             } catch (Exception $e) {
                 echo "Exception : ".$e->getMessage();
+                return null;
             }
         }
         
