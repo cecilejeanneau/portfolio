@@ -1,6 +1,6 @@
 <?php
 
-    class ProjectController {
+    class ProjectController extends AbstractController {
         
         public function index(): void {
             $this->render($page = "project_index");

@@ -30,17 +30,21 @@
         }
         // get informations and display them for example
         
-        public function setId(): void {
+        public function setId() {
             $this->id = $id;
+            return $this;
         }
-        public function setName(): void {
+        public function setName() {
             $this->name = $name;
+            return $this;
         }
-        public function setSlug(): void {
+        public function setSlug() {
             $this->slug = $slug;
+            return $this;
         }
-        public function setPageTypeId(): void {
+        public function setPageTypeId() {
             $this->page_type_id = $page_type_id;
+            return $this;
         }
         // update informations
         

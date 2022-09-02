@@ -30,17 +30,21 @@
         }
         // get informations and display them for example
         
-        public function setId(): void {
+        public function setId() {
             $this->id = $id;
+            return $this;
         }
-        public function setUsername(): void {
+        public function setUsername() {
             $this->username = $username;
+            return $this;
         }
-        public function setPassword(): void {
+        public function setPassword() {
             $this->password = $password;
+            return $this;
         }
-        public function setEmail(): void {
+        public function setEmail() {
             $this->email = $email;
+            return $this;
         }
         // update informations
     }

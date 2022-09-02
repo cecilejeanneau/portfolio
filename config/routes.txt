@@ -9,4 +9,6 @@
 /sign-up AuthenticationController:show
 /admin AdminController:index
 /admin/* AdminController:show
-/admin/*/file-uploader FileUploaderController:index
+/file-uploader FileUploaderController:index
+/upload FileUploaderController:handleUpload
+/medias MediaController:index

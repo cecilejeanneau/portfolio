@@ -45,28 +45,42 @@
         public function getFileType(): string {
             return $this->file_type;
         }
+        public function getUrl(): string {
+            return $this->url;
+        }
         // get informations and display them for example
         
-        public function setId(): void {
+        public function setId() {
             $this->id = $id;
+            return $this;
         }
-        public function setName(): void {
+        public function setName() {
             $this->name = $name;
+            return $this;
         }
-        public function setDescription(): void {
+        public function setDescription() {
             $this->description = $description;
+            return $this;
         }
-        public function setAlt(): void {
+        public function setAlt() {
             $this->alt = $alt;
+            return $this;
         }
-        public function setFileName(): void {
+        public function setFileName() {
             $this->filename = $filename;
+            return $this;
         }
-        public function setCategory(): void {
+        public function setCategory() {
             $this->category = $category;
+            return $this;
         }
-        public function setFileType(): void {
+        public function setFileType() {
             $this->file_type = $file_type;
+            return $this;
+        }
+        public function setUrl() {
+            $this->url = $url;
+            return $this;
         }
         // update informations
         
