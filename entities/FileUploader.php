@@ -31,14 +31,18 @@ require "Media.php";
         public function upload(array $file): Media {
             // appeler $this->checkFileType(string $fileType) pour vérifier le type du fichier 
             // appeler $this->checkFileSize(int $fileSize) pour vérifier le type du fichier 
-            $originalName = $file["name"];
+            $id = null;
+            $name = $file["name"];
+            $description = "blablah";
+            $alt = null;
             $fileName = $this->generateFileName();
-            $fileType = pathinfo($originalName)["extension"];
+            $category = "category";
+            $fileType = pathinfo($name)["extension"];
             $url = getcwd() . $this->uploadFile . $fileName . ".". $fileType;
             
             move_uploaded_file($file["tmp_name"], $url);
             
-            return new Media($originalName, $fileName, $fileType, $url);
+            return new Media($id, $name, $description, $alt, $fileName, $category, $fileType, $url);
         }
     }                                
                             

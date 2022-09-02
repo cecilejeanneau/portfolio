@@ -10,8 +10,8 @@ require "./entities/FileUploader.php";
         
         public function handleUpload() {
             if(isset($_POST["submit"])) {
-                if(isset($_FILES["fileToUpload"]))
-                {
+                if(isset($_FILES["fileToUpload"])) {
+                    var_dump($_FILES["fileToUpload"]);
                     $uploader = new FileUploader();
                     
                     $media = $uploader->upload($_FILES["fileToUpload"]);

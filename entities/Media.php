@@ -6,20 +6,20 @@
         private string $name;
         private string $description;
         private ?string $alt;
-        private string $filename;
+        private string $fileName;
         private string $category;
-        private string $file_type;
+        private string $fileType;
         private string $url;
         
-        public function __construct(?int $id, string $name, string $description, ?string $alt, string $filename, string $category, string $file_type, string $url) {
+        public function __construct(?int $id, string $name, string $description, ?string $alt, string $fileName, string $category, string $fileType, string $url) {
             
             $this->id = $id;
             $this->name = $name;
             $this->description = $description;
             $this->alt = $alt;
-            $this->filename = $filename;
+            $this->fileName = $fileName;
             $this->category = $category;
-            $this->file_type = $file_type;
+            $this->fileType = $fileType;
             $this->url = $url;
             
         }
@@ -37,13 +37,13 @@
             return $this->alt;
         }
         public function getFileName(): string {
-            return $this->filename;
+            return $this->fileName;
         }
         public function getCategory(): string {
             return $this->category;
         }
         public function getFileType(): string {
-            return $this->file_type;
+            return $this->fileType;
         }
         public function getUrl(): string {
             return $this->url;
@@ -67,7 +67,7 @@
             return $this;
         }
         public function setFileName() {
-            $this->filename = $filename;
+            $this->fileName = $fileName;
             return $this;
         }
         public function setCategory() {
@@ -75,7 +75,7 @@
             return $this;
         }
         public function setFileType() {
-            $this->file_type = $file_type;
+            $this->fileType = $fileType;
             return $this;
         }
         public function setUrl() {
