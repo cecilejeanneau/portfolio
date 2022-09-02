@@ -9,8 +9,9 @@
         private string $filename;
         private string $category;
         private string $file_type;
+        private string $url;
         
-        public function __construct(?int $id, string $name, string $description, ?string $alt, string $filename, string $category, string $file_type) {
+        public function __construct(?int $id, string $name, string $description, ?string $alt, string $filename, string $category, string $file_type, string $url) {
             
             $this->id = $id;
             $this->name = $name;
@@ -19,6 +20,7 @@
             $this->filename = $filename;
             $this->category = $category;
             $this->file_type = $file_type;
+            $this->url = $url;
             
         }
         
