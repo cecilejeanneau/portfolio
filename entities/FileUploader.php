@@ -21,22 +21,41 @@ require "Media.php";
         }
         
         private function checkFileSize(int $fileSize) {
-            // vérifier que le fichier n'est pas trop gros
+            // check if file is not too big
+            if($_FILES["size"]>$maxFileSize) {
+                echo "the file need to be less than 2Mo ";
+                header("Location: https://cecilejeanneau.sites.3wa.io/jeanneau-cecile-3WAProject/file-uploader");
+                
+                exit;
+            } else {
+                // call createMedia function from FileUploader
+            }
         }
         
         private function checkFileType(string $fileType): bool {
             // vérifier que le type est bien l'un des types autorisés
+            if($_FILES["type"] === "image/*") {
+                // call createMedia function from FileUploader
+            } else {
+                echo "the file need to be image type";
+                header("Location: https://cecilejeanneau.sites.3wa.io/jeanneau-cecile-3WAProject/file-uploader");
+                
+                exit;
+            }
         }
         
         public function upload(array $file): Media {
             // appeler $this->checkFileType(string $fileType) pour vérifier le type du fichier 
-            // appeler $this->checkFileSize(int $fileSize) pour vérifier le type du fichier 
+            $this->checkFileType($file["type"]);
+            // appeler $this->checkFileSize(int $fileSize) pour vérifier le type du fichier
+            $this->checkFileSize($file["size"]);
+            
             $id = null;
             $name = $file["name"];
-            $description = "blablah";
-            $alt = null;
+            $description = $_POST["description"];
+            $alt = $_POST["alt"];
             $fileName = $this->generateFileName();
-            $category = "category";
+            $category = $_POST["category"];
             $fileType = pathinfo($name)["extension"];
             $url = getcwd() . $this->uploadFile . $fileName . ".". $fileType;
             

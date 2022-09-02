@@ -19,6 +19,9 @@ require "./entities/FileUploader.php";
                     echo "<pre>";
                     print_r($media);
                     echo "</pre>";
+                    
+                    // $size = $uploader->checkFileSize($_FILES["size"]);
+                    // var_dump(checkFileSize($_FILES["size"]));
                 }
             }
         }

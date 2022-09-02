@@ -2,6 +2,9 @@
 
 <form action="upload" method="post" enctype="multipart/form-data">
             Select image to upload:
-              <input type="file" name="fileToUpload" id="fileToUpload">
+              <input type="file" name="fileToUpload" id="fileToUpload" required>
+              <textarea name="description" rows="20" cols="50" maxlength="150" required>Put picture description here !*</textarea>
+              <input type="text" name="alt" placeholder="Put alt text for SEO and accessibility here *" required>
+              <input type="text" name="category" placeholder="Put category picture here *" required>
               <input type="submit" value="Upload Image" name="submit">
 </form>
