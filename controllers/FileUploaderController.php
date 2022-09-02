@@ -12,6 +12,8 @@ require "./entities/FileUploader.php";
             if(isset($_POST["submit"])) {
                 if(isset($_FILES["fileToUpload"])) {
                     var_dump($_FILES["fileToUpload"]);
+                    var_dump($_FILES["fileToUpload"]['type']);
+                    var_dump($_FILES);
                     $uploader = new FileUploader();
                     
                     $media = $uploader->upload($_FILES["fileToUpload"]);
