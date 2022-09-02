@@ -4,15 +4,19 @@
  * @author : JEANNEAU Cécile
  */
 
+    $routes = [];
+    
     require "./managers/AbstractManager.php";
+    require "./controllers/AbstractController.php";
+    
+    
+    require "./managers/UserManager.php";
     require "./managers/MediaManager.php";
     require "./managers/ContactManager.php";
     require "./managers/PageBlockManager.php";
     require "./managers/PageManager.php";
     require "./managers/ProjectManager.php";
-    require "./managers/UserManager.php";
     
-    require "./controllers/AbstractController.php";
     require "./services/Router.php";
     require "./controllers/PageController.php";
     require "./controllers/ProjectController.php";
@@ -20,7 +24,7 @@
     require "./controllers/AdminController.php";
     require "./controllers/ContactController.php";
     
-    $routes = [];
+
     
     // Read/Manage the routes config file
     $handle = fopen("config/routes.txt", "r");

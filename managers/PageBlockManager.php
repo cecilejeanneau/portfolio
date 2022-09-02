@@ -24,23 +24,47 @@
             
         }
         
-        public function getPageBlockByName(string $name): ?PageBlock {
+        // public function getPageBlockById(string $id): ?PageBlock {
+        //     // READ
+        //     $query = $this->db->prepare('SELECT name, page_id, media_id, page_block_type_id FROM page_blocks WHERE page_blocks.id = :id');
+        //     $parameters = [
+        //         'id' => $id
+        //     ];
+        //     $query->execute($parameters);
+        //     $result = $query->fetch(PDO::FETCH_ASSOC);
+        //     // returns the result in an associative array
+            
+        //     try {
+        //         if(!is_null($result)) {
+        //             return new PageBlock($result['id'], $result['name'], $result['page_id'],     $result['media_id'], $result['page_block_type_id']);
+        //         } else {
+        //             throw new Exception("This page block doesn't exist");
+        //         }
+        //     } catch (Exception $e) {
+        //         echo "Exception : ".$e->getMessage();
+        //     }
+        // }
+        
+        
+        public function getPageBlockById(string $id): ?PageBlock {
             // READ
-            $query = $this->db->prepare('SELECT name, page_id, media_id, page_block_type_id FROM page_blocks WHERE page_blocks.name = :name');
+            $query = $this->db->prepare('SELECT page_blocks.id, page_blocks.name, page_block_types.name FROM page_blocks JOIN page_block_types ON page_block_types.id = page_blocks.page_block_type_id WHERE page_blocks.id = :id');
             $parameters = [
-                'name' => $name
+                'id' => $id
             ];
             $query->execute($parameters);
             $result = $query->fetch(PDO::FETCH_ASSOC);
             // returns the result in an associative array
             
-            if(!is_null($result))
-            {
-                return new PageBlock($result['id'], $result['name'], $result['page_id'], $result['media_id'], $result['page_block_type_id']);
+            try {
+                if(!is_null($result)) {
+                    return new PageBlock($result['id'], $result['name'], $result['page_block_type_id']);
+                } else {
+                    throw new Exception("This page block doesn't exist");
+                }
+            } catch (Exception $e) {
+                echo "Exception : ".$e->getMessage();
             }
-            
-            echo "This page block doesn't exist";
-            
         }
         
         public function updatePageBlock(PageBlock $page_block): PageBlock {

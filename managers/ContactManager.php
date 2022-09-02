@@ -35,8 +35,7 @@
             $result = $query->fetch(PDO::FETCH_ASSOC);
             // returns the result in an associative array
             try {
-                if(!is_null($result))
-                {
+                if(!is_null($result)) {
                     return new Contact($result['id'], $result['name'], $result['content'], $result['email'], $result['tel'], $result['media_id']);
                 } else {
                     throw new Exception("This contact doesn't exist");

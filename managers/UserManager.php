@@ -1,13 +1,18 @@
 <?php
 
-// require_once "./managers/AbstractManager.php";
+require_once "./entities/User.php";
 
     class UserManager extends AbstractManager {
         
         // IDENTITY VERIFICATION
-        public function  validId(User $user): User {
-            // ...
-        }
+        // public function  validId(User $user): User {
+        //     // ...
+        // }
+        // public User $user;
+        
+        // public function __construct(){
+        //     $this->user = new User();
+        // }
         
         // CRUD : CREATE READ UPDATE DELETE
         public function createUser(User $user): User {
@@ -28,20 +33,23 @@
         
         public function getUserByUsername(string $username): ?User {
             // READ
-            $query = $this->db->prepare('SELECT username, password, email FROM users WHERE users.username = :username');
+            $query = $this->db->prepare('SELECT id, username, password, email FROM users WHERE users.username = :username');
             $parameters = [
                 'username' => $username
             ];
             $query->execute($parameters);
             $result = $query->fetch(PDO::FETCH_ASSOC);
             
-            if(!is_null($result))
-            {
-                return new User($result['id'], $result['username'], $result['password'], $result['email']);
+            try {
+                if($result) {
+                    return new User($result['id'], $result['username'], $result['password'], $result['email']);
+                } else {
+                    throw new Exception("This user doesn't exist");
+                }
+            } catch (Exception $e) {
+                echo "Exception : ".$e->getMessage();
+                return null;
             }
-            
-            echo "This user doesn't exist";
-            
         }
         
         public function updateUser(User $user): User {

@@ -23,23 +23,48 @@
             
         }
         
-        public function getPageByName(string $name): ?Page {
+        public function getPageById(string $id): ?Page {
             // READ
-            $query = $this->db->prepare('SELECT name, slug, page_type_id FROM pages WHERE pages.name = :name');
+            $query = $this->db->prepare('SELECT pages.id, pages.name, pages.slug, page_types.name, page_types.description FROM pages JOIN page_types ON page_types.id = pages.page_type_id WHERE pages.id = :id');
             $parameters = [
-                'name' => $name
+                'id' => $id
             ];
             $query->execute($parameters);
             $result = $query->fetch(PDO::FETCH_ASSOC);
             // returns the result in an associative array
             
-            if(!is_null($result))
-            {
-                return new Page($result['id'], $result['name'], $result['slug'], $result['page_type_id']);
+            try {
+                if(!is_null($result)) {
+                    return new Page($result['id'], $result['name'], $result['slug'], $result['page_type_id']);
+                    // think about add page_types data later
+                } else {
+                    throw new Exception("This page doesn't exist");
+                }
+            } catch (Exception $e) {
+                echo "Exception : ".$e->getMessage();
             }
+        }
+        
+        public function getPageBySlug(string $slug): ?Page {
+            // READ
+            $query = $this->db->prepare('SELECT pages.id, pages.name, pages.slug, page_types.name, page_types.description FROM pages JOIN page_types ON page_types.id = pages.page_type_id WHERE pages.slug = :slug');
+            $parameters = [
+                'slug' => $slug
+            ];
+            $query->execute($parameters);
+            $result = $query->fetch(PDO::FETCH_ASSOC);
+            // returns the result in an associative array
             
-            echo "This page doesn't exist";
-            
+            try {
+                if(!is_null($result)) {
+                    return new Page($result['id'], $result['name'], $result['slug'], $result['page_type_id']);
+                    // think about add page_types data later
+                } else {
+                    throw new Exception("This page doesn't exist");
+                }
+            } catch (Exception $e) {
+                echo "Exception : ".$e->getMessage();
+            }
         }
         
         public function updatePage(Page $page): Page {
