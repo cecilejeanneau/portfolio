@@ -22,15 +22,14 @@
             $query->execute($parameters);
             $id = $this->db->lastInsertId();
             
-            // $media->setId($id);
             return $media;
             
             $media->setId($id);
         }
         
-        public function getMediaById(string $id): ?Media {
+        public function getMediaById(int $id): ?object {
             // READ
-            $query = $this->db->prepare('SELECT name, description, alt, fileName, category, fileType, url FROM medias WHERE medias.id = :id');
+            $query = $this->db->prepare('SELECT id, name, description, alt, file_name, category, file_type, url FROM medias WHERE medias.id = :id');
             $parameters = [
                 'id' => $id
             ];
@@ -39,9 +38,11 @@
             // returns the result in an associative array
             
             try {
-                if(!is_null($result)) {
-                    return new Media($result['id'], $result['name'], $result['description']    , $result['alt'], $result['fileName'], $result['category'],     $result['fileType'], $result['url']);
+                if(isset($result['id'])) {
+                    return new Media($result['id'], $result['name'], $result['description']    , $result['alt'], $result['file_name'], $result['category'],     $result['file_type'], $result['url']);
                 } else {
+                    
+                    return null;
                     throw new Exception("This media doesn't exist");
                 }
             } catch (Exception $e) {
@@ -51,7 +52,7 @@
         
         public function getMediaByName(string $name): ?Media {
             // READ
-            $query = $this->db->prepare('SELECT name, description, alt, fileName, category, fileType, url FROM medias WHERE medias.name = :name');
+            $query = $this->db->prepare('SELECT id, name, description, alt, file_name, category, file_type, url FROM medias WHERE medias.name = :name');
             $parameters = [
                 'name' => $name
             ];
@@ -60,7 +61,7 @@
             // returns the result in an associative array
             
             if(!is_null($result)) {
-                return new Media($result['id'], $result['name'], $result['description'], $result['alt'], $result['fileName'], $result['category'], $result['fileType'], $result['url']);
+                return new Media($result['id'], $result['name'], $result['description'], $result['alt'], $result['file_name'], $result['category'], $result['file_type'], $result['url']);
             }
             
             echo "This media doesn't exist";

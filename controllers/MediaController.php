@@ -30,8 +30,12 @@ require "./services/FileUploader.php";
                     print_r($media);
                     echo "</pre>";
                     
-                    $uploaded = $this->mediaM->createMedia($media);
-                    print_r($uploaded);
+                    $uploaded1 = $this->mediaM->createMedia($media);
+                    $uploaded2 = $this->mediaM->getMediaById(50);
+                    $uploaded3 = $this->mediaM->getMediaByName('media-name');
+                    print_r($uploaded1);
+                    print_r($uploaded2);
+                    print_r($uploaded3);
                     // $size = $uploader->checkFileSize($_FILES["size"]);
                     // var_dump(checkFileSize($_FILES["size"]));
                 }
