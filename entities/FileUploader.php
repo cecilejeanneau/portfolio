@@ -8,8 +8,8 @@
 
 require "Media.php";
 
-    class FileUploader
-    {
+    class FileUploader extends AbstractController {
+        
         private string $uploadFile = "/uploads/";
         private array $allowedFileTypes = ["png", "PNG", "jpg", "JPG", "jpeg", "JPEG"];
         private int $maxFileSize = 2000000; // 2 Mo

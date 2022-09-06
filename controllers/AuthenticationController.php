@@ -2,10 +2,10 @@
 
     class AuthenticationController extends AbstractController {
         
-        public UserManager $userm;
+        public UserManager $userM;
         
         public function __construct(){
-            $this->userm = new UserManager();
+            $this->userM = new UserManager();
         }
         
         public function index(): void {
@@ -30,8 +30,8 @@
         }
         
         private function checkUsername() {
-            if($this->userm->getUserByUsername($_POST['username']) !== null) {
-                $user = $this->userm->getUserByUsername($_POST['username']);
+            if($this->userM->getUserByUsername($_POST['username']) !== null) {
+                $user = $this->userM->getUserByUsername($_POST['username']);
                 $username = $user->getUsername();
                     
                 if($_POST['username'] === $username) {
@@ -46,7 +46,7 @@
         
         private function checkPassword() {
             if(isset($_POST["password"])) {
-                $user = $this->userm->getUserByUsername($_POST['username']);
+                $user = $this->userM->getUserByUsername($_POST['username']);
                 $password = $user->getPassword();
                 
                 if($_POST['password'] === $password) {
