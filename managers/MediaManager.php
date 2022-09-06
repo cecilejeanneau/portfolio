@@ -7,7 +7,7 @@
         // CRUD : CREATE READ UPDATE DELETE
         public function createMedia(Media $media): Media {
             // CREATE
-            $query = $this->db->prepare('INSERT INTO medias(name, description, alt, fileName, category, fileType, url) VALUES (:name, :description, :alt, :fileName, :category, :fileType, :url)');
+            $query = $this->db->prepare('INSERT INTO medias(name, description, alt, file_name, category, file_type, url) VALUES (:name, :description, :alt, :fileName, :category, :fileType, :url)');
             // prepare() method from PDO enable to protect from MYSQL injections
             
             $parameters = [
@@ -22,9 +22,10 @@
             $query->execute($parameters);
             $id = $this->db->lastInsertId();
             
-            $media->setId($id);
+            // $media->setId($id);
             return $media;
             
+            $media->setId($id);
         }
         
         public function getMediaById(string $id): ?Media {

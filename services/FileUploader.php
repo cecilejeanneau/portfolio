@@ -6,7 +6,7 @@
  * @author JEANNEAU Cécile
 */
 
-require "Media.php";
+require "./entities/Media.php";
 
     class FileUploader extends AbstractController {
         

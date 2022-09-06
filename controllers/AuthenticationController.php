@@ -4,15 +4,12 @@
         
         public UserManager $userM;
         
-        public function __construct(){
+        public function __construct() {
             $this->userM = new UserManager();
         }
         
         public function index(): void {
             $this->render($page = "login");
-            // $this->connectUser($_POST);
-            
-            // method for child class form AbstractController : need to extends
         }
         
         // this method should be the action of the login form

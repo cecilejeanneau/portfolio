@@ -17,12 +17,13 @@
     require "./managers/PageManager.php";
     require "./managers/ProjectManager.php";
     
+    // require "./services/FileUploader.php";
     require "./services/Router.php";
     require "./controllers/PageController.php";
     require "./controllers/ProjectController.php";
     require "./controllers/AuthenticationController.php";
     require "./controllers/AdminController.php";
-    require "./controllers/FileUploaderController.php";
+    require "./controllers/MediaController.php";
     require "./controllers/ContactController.php";
     
 
