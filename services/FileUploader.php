@@ -11,8 +11,8 @@ require "./entities/Media.php";
     class FileUploader extends AbstractController {
         
         private string $uploadFile = "/uploads/";
-        private array $allowedFileTypes = ["png", "PNG", "jpg", "JPG", "jpeg", "JPEG"];
-        private int $maxFileSize = 2000000; // 2 Mo
+        private array $allowedFileTypes = ["image/png", "image/PNG", "image/jpg", "image/JPG", "image/jpeg", "image/JPEG"];
+        private int $maxFileSize = 2097152; // 2 Mo
         
         private function generateFileName(): string {
             $randomString = bin2hex(random_bytes(10)); // random string, 20 characters a-z 0-9
@@ -22,39 +22,37 @@ require "./entities/Media.php";
         
         private function checkFileSize(int $fileSize) {
             // check if file is not too big
-            var_dump($_FILES);
             if($_FILES["fileToUpload"]['size']>$this->maxFileSize) {
-                echo "the file need to be less than 2Mo ";
+                // echo "the file need to be less than 2Mo ";
                 header("Location: https://cecilejeanneau.sites.3wa.io/jeanneau-cecile-3WAProject/file-uploader");
                 
                 exit;
             } else {
-                echo "thx u're image is not too big !! :)";
-                // call createMedia function from FileUploader
+                echo "ur picture is not too big";
             }
         }
         
         private function checkFileType(string $fileType): bool {
-            // vérifier que le type est bien l'un des types autorisés
-            if($_FILES["fileToUpload"]['type'] === 'image/jpeg') {
-                // call createMedia function from FileUploader
-                // here, do a foreach to read key by key the $this->allowedFilesTypes array to test all types
-                echo "this is an image thx !! :)";
-                return true;
-            } else {
-                echo "the file need to be image type";
-                header("Location: https://cecilejeanneau.sites.3wa.io/jeanneau-cecile-3WAProject/file-uploader");
+            // check if type is one of those authorized
+            
+                var_dump($this->allowedFileTypes);
                 
-                exit;
-                
-                return false;
-            }
+                if (in_array($_FILES["fileToUpload"]['type'], $this->allowedFileTypes)) {
+                    echo "Got ".$_FILES["fileToUpload"]['type']." this is a picture"."<br>";
+                    return true;
+                } else {
+                    
+                    header("Location: https://cecilejeanneau.sites.3wa.io/jeanneau-cecile-3WAProject/file-uploader");
+                    echo "the file need to be image type";
+                    exit;
+                    return false;
+                }
+            
         }
         
         public function upload(array $file): Media {
-            // appeler $this->checkFileType(string $fileType) pour vérifier le type du fichier 
+            
             $this->checkFileType($file["type"]);
-            // appeler $this->checkFileSize(int $fileSize) pour vérifier le type du fichier
             $this->checkFileSize($file["size"]);
             
             $id = null;
