@@ -1,7 +1,5 @@
 <?php
 
-// require_once "./managers/AbstractManager.php";
-
     class PageBlockManager extends AbstractManager {
         
         // CRUD : CREATE READ UPDATE DELETE
@@ -23,28 +21,6 @@
             return $page_block;
             
         }
-        
-        // public function getPageBlockById(string $id): ?PageBlock {
-        //     // READ
-        //     $query = $this->db->prepare('SELECT name, page_id, media_id, page_block_type_id FROM page_blocks WHERE page_blocks.id = :id');
-        //     $parameters = [
-        //         'id' => $id
-        //     ];
-        //     $query->execute($parameters);
-        //     $result = $query->fetch(PDO::FETCH_ASSOC);
-        //     // returns the result in an associative array
-            
-        //     try {
-        //         if(!is_null($result)) {
-        //             return new PageBlock($result['id'], $result['name'], $result['page_id'],     $result['media_id'], $result['page_block_type_id']);
-        //         } else {
-        //             throw new Exception("This page block doesn't exist");
-        //         }
-        //     } catch (Exception $e) {
-        //         echo "Exception : ".$e->getMessage();
-        //     }
-        // }
-        
         
         public function getPageBlockById(string $id): ?PageBlock {
             // READ
