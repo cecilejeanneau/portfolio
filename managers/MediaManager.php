@@ -1,7 +1,5 @@
 <?php
 
-// require_once "./managers/AbstractManager.php";
-
     class MediaManager extends AbstractManager {
         
         // CRUD : CREATE READ UPDATE DELETE
@@ -27,7 +25,7 @@
             $media->setId($id);
         }
         
-        public function getMediaById(int $id): ?object {
+        public function getMediaById(int $id): ?Media {
             // READ
             $query = $this->db->prepare('SELECT id, name, description, alt, file_name, category, file_type, url FROM medias WHERE medias.id = :id');
             $parameters = [
@@ -37,16 +35,11 @@
             $result = $query->fetch(PDO::FETCH_ASSOC);
             // returns the result in an associative array
             
-            try {
-                if(isset($result['id'])) {
-                    return new Media($result['id'], $result['name'], $result['description']    , $result['alt'], $result['file_name'], $result['category'],     $result['file_type'], $result['url']);
-                } else {
-                    
-                    return null;
-                    throw new Exception("This media doesn't exist");
-                }
-            } catch (Exception $e) {
-                echo "Exception : ".$e->getMessage();
+        
+            if(isset($result['id'])) {
+                return new Media($result['id'], $result['name'], $result['description']    , $result['alt'], $result['file_name'], $result['category'],     $result['file_type'], $result['url']);
+            } else {
+                return throw new Exception("This media doesn't exist");
             }
         }
         
@@ -60,11 +53,11 @@
             $result = $query->fetch(PDO::FETCH_ASSOC);
             // returns the result in an associative array
             
-            if(!is_null($result)) {
+            if(isset($result['name'])) {
                 return new Media($result['id'], $result['name'], $result['description'], $result['alt'], $result['file_name'], $result['category'], $result['file_type'], $result['url']);
+            } else {
+                return throw new Exception("This media doesn't exist");
             }
-            
-            echo "This media doesn't exist";
             
         }
         
