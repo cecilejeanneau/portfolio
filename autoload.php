@@ -17,7 +17,6 @@
     require "./managers/PageManager.php";
     require "./managers/ProjectManager.php";
     
-    // require "./services/FileUploader.php";
     require "./services/Router.php";
     require "./controllers/PageController.php";
     require "./controllers/ProjectController.php";
