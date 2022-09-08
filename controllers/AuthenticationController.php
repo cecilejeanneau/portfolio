@@ -18,7 +18,7 @@
             $this->checkForm();
         }
         
-        private function checkForm(){
+        private function checkForm(): void{
             if(!is_null($_POST) && isset($_POST["username"])) {
                 $this->checkUsername();
             } else {
@@ -26,33 +26,43 @@
             }
         }
         
-        private function checkUsername() {
-            if($this->userM->getUserByUsername($_POST['username']) !== null) {
-                $user = $this->userM->getUserByUsername($_POST['username']);
-                $username = $user->getUsername();
-                    
-                if($_POST['username'] === $username) {
-                    $this->checkPassword();
+        private function checkUsername(): void {
+            try {
+                if($this->userM->getUserByUsername($_POST['username']) !== null) {
+                    $user = $this->userM->getUserByUsername($_POST['username']);
+                    $username = $user->getUsername();
+                        
+                    if($_POST['username'] === $username) {
+                        $this->checkPassword();
+                    } else {
+                        $this->whereRedirect();
+                    }
                 } else {
                     $this->whereRedirect();
                 }
-            } else {
-                $this->whereRedirect();
+            } catch (Exception $e) {
+                echo "Exception : ".$e->getMessage();
             }
         }
         
-        private function checkPassword() {
-            if(isset($_POST["password"])) {
-                $user = $this->userM->getUserByUsername($_POST['username']);
-                $password = $user->getPassword();
-                
-                if($_POST['password'] === $password) {
-                    $this->whereRedirect(true);
+        private function checkPassword(): void {
+            try {
+                if(isset($_POST["password"])) {
+                    $user = $this->userM->getUserByUsername($_POST['username']);
+                    $password = $user->getPassword();
+                    
+                    if($_POST['password'] === $password) {
+                        $this->whereRedirect(true);
+                    } else {
+                        throw new Exception("This user doesn't exist");
+                        $this->whereRedirect();
+                    }
                 } else {
+                    throw new Exception("This user doesn't exist");
                     $this->whereRedirect();
                 }
-            } else {
-                $this->whereRedirect();
+            } catch (Exception $e) {
+                echo "Exception : ".$e->getMessage();
             }
         }
         
