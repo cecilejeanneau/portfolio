@@ -17,7 +17,7 @@
         }
         // get informations and display them for example
         
-        public function setName() {
+        public function setName(): self {
             $this->name = $name;
             return $this;
         }
