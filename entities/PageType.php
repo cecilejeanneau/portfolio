@@ -22,11 +22,11 @@
         }
         // get informations and display them for example
         
-        public function setName() {
+        public function setName(): self {
             $this->name = $name;
             return $this;
         }
-        public function setDescription() {
+        public function setDescription(): self {
             $this->description = $description;
             return $this;
         }
