@@ -35,23 +35,23 @@
         }
         // get informations and display them for example
         
-        public function setId() {
+        public function setId(): self {
             $this->id = $id;
             return $this;
         }
-        public function setName() {
+        public function setName(): self {
             $this->name = $name;
             return $this;
         }
-        public function setPageId() {
+        public function setPageId(): self {
             $this->page_id = $page_id;
             return $this;
         }
-        public function setMediaId() {
+        public function setMediaId(): self {
             $this->media_id = $media_id;
             return $this;
         }
-        public function setPageBlockTypeId() {
+        public function setPageBlockTypeId(): self {
             $this->page_block_type_id = $page_block_type_id;
             return $this;
         }
