@@ -30,19 +30,19 @@
         }
         // get informations and display them for example
         
-        public function setId() {
+        public function setId(): self {
             $this->id = $id;
             return $this;
         }
-        public function setName() {
+        public function setName(): self {
             $this->name = $name;
             return $this;
         }
-        public function setSlug() {
+        public function setSlug(): self {
             $this->slug = $slug;
             return $this;
         }
-        public function setPageTypeId() {
+        public function setPageTypeId(): self {
             $this->page_type_id = $page_type_id;
             return $this;
         }
