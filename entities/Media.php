@@ -50,35 +50,35 @@
         }
         // get informations and display them for example
         
-        public function setId() {
+        public function setId(): self {
             $this->id = $id;
             return $this;
         }
-        public function setName() {
+        public function setName(): self {
             $this->name = $name;
             return $this;
         }
-        public function setDescription() {
+        public function setDescription(): self {
             $this->description = $description;
             return $this;
         }
-        public function setAlt() {
+        public function setAlt(): self {
             $this->alt = $alt;
             return $this;
         }
-        public function setFileName() {
+        public function setFileName(): self {
             $this->fileName = $fileName;
             return $this;
         }
-        public function setCategory() {
+        public function setCategory(): self {
             $this->category = $category;
             return $this;
         }
-        public function setFileType() {
+        public function setFileType(): self {
             $this->fileType = $fileType;
             return $this;
         }
-        public function setUrl() {
+        public function setUrl(): self {
             $this->url = $url;
             return $this;
         }
