@@ -6,19 +6,21 @@
         private string $name;
         private string $description;
         private ?string $alt;
-        private string $filename;
+        private string $fileName;
         private string $category;
-        private string $file_type;
+        private string $fileType;
+        private string $url;
         
-        public function __construct(?int $id, string $name, string $description, ?string $alt, string $filename, string $category, string $file_type) {
+        public function __construct(?int $id, string $name, string $description, ?string $alt, string $fileName, string $category, string $fileType, string $url) {
             
             $this->id = $id;
             $this->name = $name;
             $this->description = $description;
             $this->alt = $alt;
-            $this->filename = $filename;
+            $this->fileName = $fileName;
             $this->category = $category;
-            $this->file_type = $file_type;
+            $this->fileType = $fileType;
+            $this->url = $url;
             
         }
         
@@ -35,36 +37,50 @@
             return $this->alt;
         }
         public function getFileName(): string {
-            return $this->filename;
+            return $this->fileName;
         }
         public function getCategory(): string {
             return $this->category;
         }
         public function getFileType(): string {
-            return $this->file_type;
+            return $this->fileType;
+        }
+        public function getUrl(): string {
+            return $this->url;
         }
         // get informations and display them for example
         
-        public function setId(): void {
+        public function setId(): self {
             $this->id = $id;
+            return $this;
         }
-        public function setName(): void {
+        public function setName(): self {
             $this->name = $name;
+            return $this;
         }
-        public function setDescription(): void {
+        public function setDescription(): self {
             $this->description = $description;
+            return $this;
         }
-        public function setAlt(): void {
+        public function setAlt(): self {
             $this->alt = $alt;
+            return $this;
         }
-        public function setFileName(): void {
-            $this->filename = $filename;
+        public function setFileName(): self {
+            $this->fileName = $fileName;
+            return $this;
         }
-        public function setCategory(): void {
+        public function setCategory(): self {
             $this->category = $category;
+            return $this;
         }
-        public function setFileType(): void {
-            $this->file_type = $file_type;
+        public function setFileType(): self {
+            $this->fileType = $fileType;
+            return $this;
+        }
+        public function setUrl(): self {
+            $this->url = $url;
+            return $this;
         }
         // update informations
         

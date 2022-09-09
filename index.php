@@ -1,7 +1,7 @@
 <?php
 
     require "./autoload.php";
-
+    
 try {
     $router = new Router();
     
@@ -20,7 +20,5 @@ try {
 } catch(Exception $e) {
      echo "Exception : ".$e->getMessage();
 }
-    
-    
-    // then don't forget the try catch !
+
 ?>

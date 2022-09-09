@@ -5,7 +5,7 @@
     class PageController extends AbstractController {
         
         public function index(): void {
-            $this->render($page = "page");
+            $this->render($page = "homepage");
         }
         
     }

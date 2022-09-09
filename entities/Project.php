@@ -37,20 +37,25 @@
         }
         // get informations and display them for example
         
-        public function setName(): void {
+        public function setName(): self {
             $this->name = $name;
+            return $this;
         }
-        public function setResume(): void {
+        public function setResume(): self {
             $this->resume = $resume;
+            return $this;
         }
-        public function setMediaId(): void {
+        public function setMediaId(): self {
             $this->media_id = $media_id;
+            return $this;
         }
-        public function setPageTypeId(): void {
+        public function setPageTypeId(): self {
             $this->page_type_id = $page_type_id;
+            return $this;
         }
-        public function setSlug(): void {
+        public function setSlug(): self {
             $this->slug = $slug;
+            return $this;
         }
         // update informations
     }

@@ -1,34 +1,33 @@
 <?php
 
-// require_once "./managers/AbstractManager.php";
-
     class MediaManager extends AbstractManager {
         
         // CRUD : CREATE READ UPDATE DELETE
         public function createMedia(Media $media): Media {
             // CREATE
-            $query = $this->db->prepare('INSERT INTO medias(name, description, alt, filename, category, file_type) VALUES (:name, :description, :alt, :filename, :category, :file_type)');
+            $query = $this->db->prepare('INSERT INTO medias(name, description, alt, file_name, category, file_type, url) VALUES (:name, :description, :alt, :fileName, :category, :fileType, :url)');
             // prepare() method from PDO enable to protect from MYSQL injections
             
             $parameters = [
                 'name' => $media->getName(),
                 'description' => $media->getDescription(),
                 'alt' => $media->getAlt(),
-                'filename' => $media->getFileName(),
+                'fileName' => $media->getFileName(),
                 'category' => $media->getCategory(),
-                'file_type' => $media->getFileType()
+                'fileType' => $media->getFileType(),
+                'url' => $media->getUrl()
             ];
             $query->execute($parameters);
             $id = $this->db->lastInsertId();
             
-            $media->setId($id);
             return $media;
             
+            $media->setId($id);
         }
         
-        public function getMediaById(string $id): ?Media {
+        public function getMediaById(int $id): ?Media {
             // READ
-            $query = $this->db->prepare('SELECT name, description, alt, filename, category, file_type FROM medias WHERE medias.id = :id');
+            $query = $this->db->prepare('SELECT id, name, description, alt, file_name, category, file_type, url FROM medias WHERE medias.id = :id');
             $parameters = [
                 'id' => $id
             ];
@@ -36,20 +35,17 @@
             $result = $query->fetch(PDO::FETCH_ASSOC);
             // returns the result in an associative array
             
-            try {
-                if(!is_null($result)) {
-                    return new Media($result['id'], $result['name'], $result['description']    , $result['alt'], $result['filename'], $result['category'],     $result['file_type']);
-                } else {
-                    throw new Exception("This media doesn't exist");
-                }
-            } catch (Exception $e) {
-                echo "Exception : ".$e->getMessage();
+        
+            if(isset($result['id'])) {
+                return new Media($result['id'], $result['name'], $result['description']    , $result['alt'], $result['file_name'], $result['category'],     $result['file_type'], $result['url']);
+            } else {
+                return throw new Exception("This media doesn't exist");
             }
         }
         
         public function getMediaByName(string $name): ?Media {
             // READ
-            $query = $this->db->prepare('SELECT name, description, alt, filename, category, file_type FROM medias WHERE medias.name = :name');
+            $query = $this->db->prepare('SELECT id, name, description, alt, file_name, category, file_type, url FROM medias WHERE medias.name = :name');
             $parameters = [
                 'name' => $name
             ];
@@ -57,25 +53,26 @@
             $result = $query->fetch(PDO::FETCH_ASSOC);
             // returns the result in an associative array
             
-            if(!is_null($result)) {
-                return new Media($result['id'], $result['name'], $result['description'], $result['alt'], $result['filename'], $result['category'], $result['file_type']);
+            if(isset($result['name'])) {
+                return new Media($result['id'], $result['name'], $result['description'], $result['alt'], $result['file_name'], $result['category'], $result['file_type'], $result['url']);
+            } else {
+                return throw new Exception("This media doesn't exist");
             }
-            
-            echo "This media doesn't exist";
             
         }
         
         public function updateMedia(Media $media): Media {
             // UPDATE
-            $query = $this->db->prepare('UPDATE medias SET name = :name, description = :description, alt = :alt, filename = :filename, category = :category, file_type = :file_type WHERE id = :id ');
+            $query = $this->db->prepare('UPDATE medias SET name = :name, description = :description, alt = :alt, fileName = :fileName, category = :category, fileType = :fileType, url = :url WHERE id = :id ');
             $parameters = [
                 'id' => $media->getId(),
                 'name' => $media->getName(),
                 'description' => $media->getDescription(),
                 'alt' => $media->getAlt(),
-                'filename' => $media->getFileName(),
+                'fileName' => $media->getFileName(),
                 'category' => $media->getCategory(),
-                'file_type' => $media->getFileType()
+                'fileType' => $media->getFileType(),
+                'url' => $media->getUrl()
             ];
             $query->execute($parameters);
                 

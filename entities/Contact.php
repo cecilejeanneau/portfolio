@@ -40,23 +40,29 @@
         }
         // get informations and display them for example
         
-        public function setId(): void {
+        public function setId(): self {
             $this->id = $id;
+            return $this;
         }
-        public function setName(): void {
+        public function setName(): self {
             $this->name = $name;
+            return $this;
         }
-        public function setContent(): void {
+        public function setContent(): self {
             $this->content = $content;
+            return $this;
         }
-        public function setEmail(): void {
+        public function setEmail(): self {
             $this->email = $email;
+            return $this;
         }
-        public function setTel(): void {
+        public function setTel(): self {
             $this->tel = $tel;
+            return $this;
         }
-        public function setMediaId(): void {
+        public function setMediaId(): self {
             $this->media_id = $media_id;
+            return $this;
         }
         // update informations
         

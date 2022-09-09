@@ -22,6 +22,7 @@
     require "./controllers/ProjectController.php";
     require "./controllers/AuthenticationController.php";
     require "./controllers/AdminController.php";
+    require "./controllers/MediaController.php";
     require "./controllers/ContactController.php";
     
 
