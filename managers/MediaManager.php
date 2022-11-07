@@ -6,7 +6,7 @@
         public function createMedia(Media $media): Media {
             // CREATE
             $query = $this->db->prepare('INSERT INTO medias(name, description, alt, file_name, category, file_type, url) VALUES (:name, :description, :alt, :fileName, :category, :fileType, :url)');
-            // prepare() method from PDO enable to protect from MYSQL injections
+            // prepare() method from PDO enable to protect from MYSQL injections with jetons ":"
             
             $parameters = [
                 'name' => $media->getName(),
@@ -17,6 +17,7 @@
                 'fileType' => $media->getFileType(),
                 'url' => $media->getUrl()
             ];
+            
             $query->execute($parameters);
             $id = $this->db->lastInsertId();
             
@@ -43,22 +44,49 @@
             }
         }
         
-        public function getMediaByName(string $name): ?Media {
+        public function getMediaByName(): array {
             // READ
-            $query = $this->db->prepare('SELECT id, name, description, alt, file_name, category, file_type, url FROM medias WHERE medias.name = :name');
-            $parameters = [
-                'name' => $name
-            ];
-            $query->execute($parameters);
-            $result = $query->fetch(PDO::FETCH_ASSOC);
-            // returns the result in an associative array
             
-            if(isset($result['name'])) {
-                return new Media($result['id'], $result['name'], $result['description'], $result['alt'], $result['file_name'], $result['category'], $result['file_type'], $result['url']);
-            } else {
-                return throw new Exception("This media doesn't exist");
+            $post = file_get_contents("php://input");
+            $answer = json_decode($post, true);
+            if(isset($answer['mediFind'])) {
+                $searchMedia = "%".$answer['mediaFind']."%";
+                
+                $query = $this->db->prepare('SELECT id, name, description, alt, file_name, category, file_type, url FROM medias WHERE medias.name LIKE :name');
+                $query->bindValue('name', $searchMedia, PDO::PARAM_STR);
+                
+                $query->execute();
+                $result = $query->fetchAll(PDO::FETCH_ASSOC);
+                // returns the result in an associative array
+                
+                if(isset($result['name'])) {
+                    return new Media($result['id'], $result['name'], $result['description'], $result['alt'], $result['file_name'], $result['category'], $result['file_type'], $result['url']);
+                    
+                } else {
+                    return throw new Exception("Aucun média trouvé");
+                }
+            } else return throw new Exception("Aucun média trouvé");
+        }
+        
+        public function getAllMedias(): array {
+            // READ
+            $query = $this->db->prepare('SELECT id, name, description, alt, file_name, category, file_type, url FROM medias');
+            
+            $query->execute();
+            $results = $query->fetchAll(PDO::FETCH_ASSOC);
+            // returns the result in an associative arrays
+            
+        
+            try {
+                if(!is_null($results)) {
+                    return $results;
+                } else {
+                    throw new Exception("Pas de médias");
+                }
+            } catch (Exception $e) {
+                //  if there's an error
+                echo "Exception : ".$e->getMessage();
             }
-            
         }
         
         public function updateMedia(Media $media): Media {

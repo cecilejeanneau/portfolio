@@ -1,0 +1,17 @@
+<h1>This is the <?= $page ?> </h1>
+
+<label for="searchbar"> Rechercher une image par sa catégorie : </label>
+<input type="text" id="searchbar" name="searchbar">
+
+<section class="articles" id="answer">
+            <?php foreach($this->getMedias() as $result) { ?>
+				<article>
+					<h3><?= htmlspecialchars($result['name']) ?></h3>
+					<figure>
+						<img class="modal--hidden" src="./uploads/<?= $result['file_name'] ?>.<?= $result['file_type'] ?>" alt="<?= $result['alt'] ?>">
+						<figcaption> <?= htmlspecialchars($result['description']) ?> </figcaption>
+					</figure>
+					<p><?= nl2br(htmlspecialchars($result['category'])) ?></p>
+				</article>
+            <?php } ?>
+</section>

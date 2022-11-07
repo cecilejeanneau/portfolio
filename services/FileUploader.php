@@ -7,6 +7,7 @@
 */
 
 require "./entities/Media.php";
+require "./entities/Contact.php";
 
     class FileUploader extends AbstractController {
         
@@ -35,11 +36,11 @@ require "./entities/Media.php";
         private function checkFileType(string $fileType): bool {
             // check if type is one of those authorized
             
-                var_dump($this->allowedFileTypes);
                 
                 if (in_array($_FILES["fileToUpload"]['type'], $this->allowedFileTypes)) {
                     echo "Got ".$_FILES["fileToUpload"]['type']." this is a picture"."<br>";
                     return true;
+                    // }
                 } else {
                     
                     header("Location: https://cecilejeanneau.sites.3wa.io/jeanneau-cecile-3WAProject/file-uploader");
