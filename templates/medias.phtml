@@ -3,7 +3,7 @@
 <label for="searchbar"> Rechercher une image par sa catégorie : </label>
 <input type="text" id="searchbar" name="searchbar">
 
-<section class="articles" id="answer">
+<section class="articles" id="answerList">
             <?php foreach($this->getMedias() as $result) { ?>
 				<article>
 					<h3><?= htmlspecialchars($result['name']) ?></h3>

@@ -52,6 +52,17 @@ require "./services/FileUploader.php";
             
             $results = $this->mediaM->getMediaByName();
             
+            return $results;
+        }
+        
+        public function ajaxRequest(): array {
+            
+            $post = file_get_contents("php://input");
+            $answer = json_decode($post, true);
+            
+            $search = "%".$answer['mediaFind']."%";
+            
+            $ajaxSearch = MediaManager::getMediaByName();
         }
         
         public function handleUpload(): void {
