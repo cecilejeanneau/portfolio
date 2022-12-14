@@ -1,4 +1,6 @@
 # jeanneau-cecile-3WAProject
+## Work In Progress
+
 GRADUATION PROJECT :
 My Book made with PHP, SQL (MySQL), JAVASCRIPT, HTML & CSS
 
