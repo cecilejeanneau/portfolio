@@ -1,0 +1,15 @@
+<h1> Page des <?= $page ?> du formulaire de contact</h1>
+
+
+<?php foreach($this->getMessage() as $result) { ?>
+
+	<article>
+
+		<h4>Message from : <?= htmlspecialchars($result['name']) ?></h4>
+		<p><?= nl2br(htmlspecialchars($result['content'])) ?></p>
+		<p><?= htmlspecialchars($result['email']) ?></p>
+		<p><strong><?= htmlspecialchars($result['tel']) ?></strong></p>
+
+	</article>
+
+<?php } ?>

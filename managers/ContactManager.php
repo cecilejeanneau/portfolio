@@ -7,27 +7,30 @@
         // CRUD : CREATE READ UPDATE DELETE
         public function createContact(Contact $contact): Contact {
             // CREATE
-            $query = $this->db->prepare('INSERT INTO contacts(name, content, email, tel, media_id) VALUES (:name, :content, :email, :tel, :media_id)');
+            
+            $query = $this->db->prepare('INSERT INTO contacts(name, content, email, tel) VALUES (:name, :content, :email, :tel)');
             // prepare() method from PDO enable to protect from MYSQL injections
             
             $parameters = [
                 'name' => $contact->getName(),
                 'content' => $contact->getContent(),
                 'email' => $contact->getEmail(),
-                'tel' => $contact->getTel(),
-                'media_id' => $contact->getMediaId()
+                'tel' => $contact->getTel()
+                // 'media_id' => $contact->getMediaId():
             ];
+            
             $query->execute($parameters);
             $id = $this->db->lastInsertId();
             
-            $contact->setId($id);
             return $contact;
             
+            $contact->setId($id);
+            $contact->setMediaId($media_id);
         }
         
         public function getContactByName(string $name): ?Contact {
             // READ
-            $query = $this->db->prepare('SELECT name, content, email, tel, media_id FROM contacts WHERE contacts.name = :name');
+            $query = $this->db->prepare('SELECT id, name, content, email, tel, media_id FROM contacts WHERE contacts.name = :name');
             $parameters = [
                 'name' => $name
             ];
@@ -39,6 +42,26 @@
                     return new Contact($result['id'], $result['name'], $result['content'], $result['email'], $result['tel'], $result['media_id']);
                 } else {
                     throw new Exception("This contact doesn't exist");
+                }
+            } catch (Exception $e) {
+                //  if there's an error
+                echo "Exception : ".$e->getMessage();
+            }
+            
+        }
+        
+        public function getAllContacts(): array {
+            // READ
+            $query = $this->db->prepare('SELECT id, name, email, content, tel FROM contacts');
+            
+            $query->execute();
+            $results = $query->fetchAll(PDO::FETCH_ASSOC);
+            // returns the result in associative arrays
+            try {
+                if(!is_null($results)) {
+                    return $results;
+                } else {
+                    throw new Exception("There's no message");
                 }
             } catch (Exception $e) {
                 //  if there's an error
