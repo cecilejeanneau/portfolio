@@ -7,9 +7,9 @@
         private string $content;
         private string $email;
         private string $tel;
-        private int $media_id;
+        private ?int $media_id;
         
-        public function __construct(?int $id, string $name, string $content, string $email, string $tel, int $media_id) {
+        public function __construct(?int $id, string $name, string $content, string $email, string $tel, ?int $media_id) {
             
             $this->id = $id;
             $this->name = $name;

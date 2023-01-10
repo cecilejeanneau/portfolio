@@ -1,0 +1,21 @@
+<!--CREATE NEW USER-->
+
+<form action="sign-check" method="POST" name="form">
+    <h1> Page d'<?= $page ?> </h1>
+    <h2>Créer un nouveau membre bientôt disponible !</h2>
+    
+  <input type="text" name="username" 
+  placeholder="Entrez un identifiant *" autocomplete="off" required>
+  
+    <input type="text" name="email" 
+  placeholder="Votre e-mail *" autocomplete="off" required>
+  
+    <input type="password" name="password" 
+  placeholder="Choisissez un mot de passe *" autocomplete="off" required>
+  
+    <input type="submit" name="submit" 
+  value="Enregistrer">
+  
+  <p> Déjà inscrit? <a href="login-check-opti">Connecte-toi!</a> </p>
+  
+</form>

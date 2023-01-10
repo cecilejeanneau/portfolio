@@ -20,10 +20,14 @@
     require "./services/Router.php";
     require "./controllers/PageController.php";
     require "./controllers/ProjectController.php";
+    require "./controllers/UserController.php";
     require "./controllers/AuthenticationController.php";
+    require "./controllers/LogOutController.php";
+    require "./controllers/MessagingController.php";
     require "./controllers/AdminController.php";
     require "./controllers/MediaController.php";
     require "./controllers/ContactController.php";
+    require "./controllers/AboutController.php";
     
 
     
