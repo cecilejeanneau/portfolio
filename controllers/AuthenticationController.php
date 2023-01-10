@@ -8,6 +8,7 @@
             $this->userM = new UserManager();
         }
         
+        // method to display the login form
         public function index(): void {
             $this->render($page = "login");
         }
@@ -18,7 +19,7 @@
             $this->checkForm();
         }
         
-        private function checkForm(): void{
+        public function checkForm(): void{
             if(!is_null($_POST) && isset($_POST["username"])) {
                 $this->checkUsername();
             } else {
@@ -45,13 +46,22 @@
             }
         }
         
-        private function checkPassword(): void {
+        protected function checkPassword(): void {
+            session_start();
             try {
                 if(isset($_POST["password"])) {
                     $user = $this->userM->getUserByUsername($_POST['username']);
                     $password = $user->getPassword();
                     
-                    if($_POST['password'] === $password) {
+                    if(password_verify($_POST['password'], $password)) {
+                        
+                        $username = $_POST["username"];
+                        
+                        
+                        
+                        $_SESSION["username"] = $username;
+                        $_SESSION["connect"] = true;
+                        
                         $this->whereRedirect(true);
                     } else {
                         throw new Exception("This user doesn't exist");
@@ -66,21 +76,15 @@
             }
         }
         
-        private function whereRedirect($admin = false) {
+        private function whereRedirect($admin = false): void {
             if($admin){
-                header('Location: https://cecilejeanneau.sites.3wa.io/jeanneau-cecile-3WAProject/admin');
+                header('Location: admin');
                                 // //ADMIN redirection
                 exit();
             } else {
-            header("Location: https://cecilejeanneau.sites.3wa.io/jeanneau-cecile-3WAProject/login");
-                
-            exit;
+                header("Location: login");
+                exit;
             }
-        }
-        
-        public function show(): void {
-            $this->render($page = "sign-up");
-            // method for child class form AbstractController : need to extends
         }
         
     }

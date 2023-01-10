@@ -1,0 +1,24 @@
+<h1>This is the <?= $page ?> </h1>
+
+
+<h2>Hello <?= $_SESSION["username"]; ?></h2>
+<a href="messagerie">Messagerie</a>
+<a href="deconnection">Déconnexion</a>
+
+<label for="searchbar"> Rechercher une image par sa catégorie : </label>
+<input type="text" id="searchbar" name="searchbar">
+
+<section class="articles section--grid" id="answerList">
+            <?php foreach($this->getMedias() as $idIndex=>$result) { ?>
+            
+				<article>
+					<h3><?= htmlspecialchars($result['name']) ?></h3>
+					<figure>
+						<img id="<?= $idIndex ?>" class="img__modal--hidden" src="./uploads/<?= $result['file_name'] ?>.<?= $result['file_type'] ?>" alt="<?= $result['alt'] ?>" role="button">
+						<figcaption> <?= htmlspecialchars($result['description']) ?> </figcaption>
+					</figure>
+					<p><?= nl2br(htmlspecialchars($result['category'])) ?></p>
+				</article>
+				
+            <?php } ?>
+</section>
