@@ -16,8 +16,9 @@ require_once "./entities/User.php";
             $query->execute($parameters);
             $id = $this->db->lastInsertId();
             
-            $user->setId($id);
             return $user;
+            
+            $user->setId($id);
             
         }
         

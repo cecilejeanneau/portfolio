@@ -1,37 +1,61 @@
+<?php
+    if(!isset($_SESSION)) {
+        session_start();
+    }
+?>
+
 <!DOCTYPE html>
-<html>
+
+<html lang="fr">
     
     <head>
         
-        <meta charset="utf-8" />
+        <meta charset="utf-8">
         <title>Parade Ox</title>
-        <link rel="stylesheet" href="./assets/style.css" type="text/css" />
-    
+        <meta name="description" content="Web Design & Développement à Rennes, recherche une entreprise pour apprentissage">
+        <!--for google description extract-->
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!--indique que la taille de la zone de la fenêtre du navigateur est égale à celle of device-->
+        <link rel="icon" type="image/png" href="./assets/logo.png">
+        <!--favicon : picture/logo on browser tab-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <!--link google font-->
+        <link rel="stylesheet" href="./assets/style.css" type="text/css">
+        <!--no CSS inline-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <!--FontAwesome CDN for icons-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!--meta responsive viewport-->
+
     </head>
     
-    <body>
-        
-        <header>
+    <body class="body--grid">
+        <!--NO DIV FOR SEO BECAUSE IS NOT SEMANTIC !-->
+        <header id="top">
+            
             <nav>
                 <ul>
-                    <li><img src=""></li>
-                    <li>Accueil</li>
-                    <li>À propos</li>
-                    <li>Réalisations</li>
-                    <li>Contact</li>
+                    <li><a href="home"><img src="./assets/logo.png" alt="logo"></a></li>
+                    <li><a href="a-propos">À propos</a></li>
+                    <li><a href="medias">Réalisations</a></li>
+                    <li><a href="contact">Contact</a></li>
                 </ul>
             </nav>
-            <h1>PARADE OX</h1>
+            
+            <h1 class="header--h1__animation">Parade Ox</h1>
             <p>Web Designer & Developer</p>
+            
             <ul>
-                <li><span></span></li>
-                <li><span></span></li>
-                <li><span></span></li>
+                <li><a href="https://github.com/cecilejeanneau"><span class="fa-brands fa-github"></span></a></li>
+                <li><a href="https://www.linkedin.com/in/c%C3%A9cile-jeanneau-344291205/"><span class="fa-brands fa-linkedin-in"></span></a></li>
+                <li><a href="https://www.behance.net/gallery/107491871/Portfolio"><span class="fa-brands fa-behance"></span></a></li>
             </ul>
-        
+            
+            <cite>Dark Mode or Not Dark Mode selon préférences du navigateur ou OS</cite>
+            
         </header>
         
-        <main>
+        <main class="main--grid">
             
             <?php require "./templates/".$page.".phtml"; ?>
             
@@ -39,9 +63,23 @@
         
         <footer>
             
-            <p>footer space</p>
+            <nav>
+                <ul>
+                    <li> <a href="https://www.linkedin.com/in/c%C3%A9cile-jeanneau-344291205/"> <span class="fa-brands fa-linkedin-in"></span> linkedin </a></li>
+                    <li> <a href="https://www.behance.net/gallery/107491871/Portfolio"> <span class="fa-brands fa-behance"></span> art book </a></li>
+                </ul>
+            </nav>
+            
+            <pre>Développé et Designé par © Cécile JEANNEAU
+31 lourmel 35230 Noyal-châtillon-sur-seiche
+cecile.n.jeanneau@gmail.com
+06 63 64 31 03</pre>
+
+            <a rel="license" href="#top"><img alt="Parade Ox property" src="./assets/logo.png"></a>
         
         </footer>
+        
+        <script src="./assets/script.js"></script>
         
     </body>
     
