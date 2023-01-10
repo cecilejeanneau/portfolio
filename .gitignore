@@ -1,2 +1,5 @@
 # ignore ALL files in uploads directory
 uploads/
+
+managers/AbstractManager.php
+.htacess
