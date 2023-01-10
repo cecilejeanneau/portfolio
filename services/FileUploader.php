@@ -57,12 +57,12 @@ require "./entities/Contact.php";
             $this->checkFileSize($file["size"]);
             
             $id = null;
-            $name = $file["name"];
+            $name = $_POST["name"];
             $description = $_POST["description"];
             $alt = $_POST["alt"];
             $fileName = $this->generateFileName();
             $category = $_POST["category"];
-            $fileType = pathinfo($name)["extension"];
+            $fileType = pathinfo($file['name'])["extension"];
             $url = getcwd() . $this->uploadFile . $fileName . ".". $fileType;
             
             move_uploaded_file($file["tmp_name"], $url);

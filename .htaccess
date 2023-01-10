@@ -2,5 +2,5 @@
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ /jeanneau-cecile-3WAProject/index.php?path=$1 [NC,L,QSA]
+RewriteRule ^(.*)$ /portfolio/index.php?path=$1 [NC,L,QSA]
 </IfModule>

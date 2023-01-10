@@ -78,15 +78,11 @@
         
         private function whereRedirect($admin = false): void {
             if($admin){
-                // var_dump($_SESSION);
-                //         die;
-                // $this->render($page = "admin_index");
                 header('Location: admin');
                                 // //ADMIN redirection
                 exit();
             } else {
                 header("Location: login");
-                    
                 exit;
             }
         }

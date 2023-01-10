@@ -1,5 +1,4 @@
 <?php
-
 require "./services/FileUploader.php";
 
     class MediaController extends AbstractController { 
@@ -48,11 +47,10 @@ require "./services/FileUploader.php";
             return $results;
         }
         
-        public function getMediaByName(): array {
+        public function updateMedia(): array {
+            $media = $this->mediaM->updateMedias();
             
-            $results = $this->mediaM->getMediaByName();
-            
-            return $results;
+            return $media;
         }
         
         public function ajaxRequest(): array {
@@ -60,13 +58,22 @@ require "./services/FileUploader.php";
             $post = file_get_contents("php://input");
             $answer = json_decode($post, true);
             
-            $search = "%".$answer['mediaFind']."%";
+            if(isset($answer['mediaFind'])) {
+                $search = $answer['mediaFind']."%";
+                
+                $ajaxSearch = $this->mediaM->getMediaByName($search);
+                
+                include"./templates/medias_list.phtml"; 
+                return $ajaxSearch;
+            } else {
+                
+                throw new Exception("Aucun média trouvé");
+            }
             
-            $ajaxSearch = MediaManager::getMediaByName();
         }
         
         public function handleUpload(): void {
-            // WILL NEED TO CHECK MIME !!
+            // THINK TO CHECK MIME TOO !!
             try {
                 if(isset($_POST["submit"])) {
                     if(isset($_FILES["fileToUpload"])) {

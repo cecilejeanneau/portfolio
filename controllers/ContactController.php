@@ -1,7 +1,5 @@
 <?php
 
-// require "./services/FileUploader.php";
-
     class ContactController extends AbstractController {
         
         public ContactManager $contactM;
@@ -33,7 +31,7 @@
                     
                     $getContact = $this->contactM->getContactByName($name);
                     
-                    // SOON HERE A FUTURE MANAGER FOR UPLOADING FILES
+                    // SOON HERE A FUTURE MANAGER FOR UPLOADING FILES WITH FILE-UPLOADER FILE FROM SERVICES FOLDER
                     
                 }
             } catch (Exception $e) {

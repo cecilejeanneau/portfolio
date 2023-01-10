@@ -1,6 +1,7 @@
 <h1> Page des <?= $page ?> du formulaire de contact</h1>
 
-
+<section class="articles section--grid" id="answerList">
+	
 <?php foreach($this->getMessage() as $result) { ?>
 
 	<article>
@@ -13,3 +14,4 @@
 	</article>
 
 <?php } ?>
+</section>

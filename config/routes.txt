@@ -11,10 +11,11 @@
 /login-check AuthenticationController:loginCheck
 /login-check-opti AuthenticationController:loginCheckOpti
 /deconnection LogOutController:logOut
+/delete-user UserController:deleteUser
 /admin AdminController:index
 /admin/* AdminController:show
 /messagerie MessagingController:index
 /file-uploader MediaController:uploader
 /upload MediaController:handleUpload
 /medias MediaController:index
-/ajax MediaController:getMediaByName
+/ajax MediaController:ajaxRequest

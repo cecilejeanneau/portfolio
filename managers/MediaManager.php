@@ -44,31 +44,18 @@
             }
         }
         
-        public function getMediaByName(): array {
+        public function getMediaByName($search): array {
             // READ
-            
-            
-            // var_dump(file_get_contents('php://input'));
-            // die;
-            if(isset($answer['mediaFind'])) {
+            if(isset($search)) {
                 
-                // var_dump($answer['mediaFind']);
-                // var_dump($searchMedia);
-                // die;
-                
-                $query = $this->db->prepare('SELECT id, name, description, alt, file_name, category, file_type, url FROM medias WHERE name LIKE :find');
+                $query = $this->db->prepare('SELECT id, name, description, alt, file_name, category, file_type, url FROM medias WHERE category LIKE :find');
                 $query->bindValue('find', $search, PDO::PARAM_STR);
                 
                 $query->execute();
                 $result = $query->fetchAll(PDO::FETCH_ASSOC);
-                // returns the result in an associative array
-                // var_dump($result);
-                //     die;
                     
-                if(isset($result['name'])) {
-                    return new Media($result['id'], $result['name'], $result['description'], $result['alt'], $result['file_name'], $result['category'], $result['file_type'], $result['url']);
-                    // var_dump($result['name']);
-                    // die;
+                if(isset($result)) {
+                    return $result;
                     
                 } else {
                     return throw new Exception("Aucun média trouvé");
