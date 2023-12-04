@@ -11,6 +11,7 @@ function modal() {
     let bodyGrid = document.querySelector(".body--grid");
     let mainGrid = document.querySelector(".main--grid");
     let sectionGrid = document.querySelector(".section--grid");
+    let body = document.querySelector("body");
         // select the element
 
 
@@ -24,8 +25,13 @@ function modal() {
             // event listener to all the images
         if (picturesAsButton !== null) {
     
-            picturesAsButton.addEventListener("click", () => { picturesAsButton.classList.toggle("img__modal--size") + bodyGrid.classList.toggle("body--no-grid") + mainGrid.classList.toggle("main--no-grid") + sectionGrid.classList.toggle("section--no-grid") }, false);
-            
+            picturesAsButton.addEventListener("click", () => { 
+                picturesAsButton.classList.toggle("img__modal--size"); 
+                bodyGrid.classList.toggle("body--no-grid"); 
+                mainGrid.classList.toggle("main--no-grid");
+                sectionGrid.classList.toggle("section--no-grid"); 
+                 body.classList.toggle("body--overlay");
+            }, false);            
             // display it by changing the classes
         }
     }
