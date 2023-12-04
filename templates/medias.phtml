@@ -2,12 +2,14 @@
             <?php foreach($this->getMedias() as $idIndex=>$result) { ?>
             
 				<article class="card">
+
 					<h3><?= htmlspecialchars($result['name']) ?></h3>
 					<figure>
 						<img id="<?= $idIndex ?>" class="img__modal--hidden" src="./uploads/<?= $result['file_name'] ?>.<?= $result['file_type'] ?>" alt="<?= $result['alt'] ?>" role="button">
 						<figcaption> <?= htmlspecialchars($result['description']) ?> </figcaption>
 					</figure>
 					<cite><?= nl2br(htmlspecialchars($result['category'])) ?></cite>
+
 				</article>
 				
             <?php } ?>
@@ -20,6 +22,7 @@
 		<input type="text" id="searchbar" name="searchbar" placeholder="rechercher une catégorie">
 	</article>
 </section>
+
 
 <!--foreach($array as $key=>$value) {-->
 <!--    // do stuff-->
