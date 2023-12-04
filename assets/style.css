@@ -33,6 +33,7 @@ footer p {
 
 /* LIGHT MODE */
 /*@media (prefers-color-scheme: light) {*/
+
   body {
     background-color: white;
     color: black;
@@ -65,6 +66,7 @@ footer p {
 
 @media screen and (max-width: 800px) { 
   /* STYLES FOR SMALL SCREENS (MOBILE-FIRST) */
+
   .body--grid {
     display: grid;
   }
@@ -87,12 +89,14 @@ footer p {
   }
   header {
     grid-column: 1/4;
+
     grid-row: 1;
   }
   .main--grid {
     max-width: 85vw;
     display: grid;
     grid-column: 1/4;
+
     grid-row: 2/8;
     grid-template-columns: subgrid;
     margin: auto;
@@ -170,6 +174,7 @@ section article.card:nth-child(3n + 3) cite {
     background-position: top;
     background-size: cover;
     grid-column: 1/4;
+
     grid-row: 8;
     display: flex;
   }
@@ -179,6 +184,7 @@ section article.card:nth-child(3n + 3) cite {
 
 header {
   padding-top: 2rem;
+
   background-color: #06779066;
   background-repeat: no-repeat;
   background-position: right, bottom center;
@@ -198,6 +204,7 @@ header p {
 .header--h1__animation {
   animation: pulseUpTitle 1.5s ease;
 }
+
 
 @keyframes pulseUpTitle {
   from { transform: scale(0); }
@@ -231,6 +238,7 @@ header .active {
   font-weight: 600;
   color: black;
   border-bottom: solid #027890;
+
 }
 header a img {
   width: 5vw;
@@ -254,6 +262,7 @@ header .fa-brands:hover {
 }
 /*** MAIN STYLE ***/
 
+
 .main--grid {
   margin: 0 auto;
   text-align: center;
@@ -265,6 +274,7 @@ header .fa-brands:hover {
 
 main h1 {
   grid-column: 1/4;
+
 }
 
 .section--no-grid {
@@ -274,11 +284,13 @@ main h1 {
   /*padding: 0 10rem 0 10rem;*/
   padding: 0;
   max-width: 50vw;
+
 }
 
 section li {
   text-align: left;
   padding: 1rem;
+
 }
 
 main article p {
@@ -300,6 +312,7 @@ main article cite {
 
 main ul {
   margin-bottom: 0;
+
 }
 
 /* ARTICLE */
@@ -331,6 +344,7 @@ article img {
 
 .img__modal--size {
   width: 65vw;
+
   position: fixed;
   z-index: 1;
   left: 50%;
@@ -341,6 +355,7 @@ article img {
 }
 
 /*** FORM STYLE ***/
+
 
 textarea {
   resize: none;
@@ -375,6 +390,7 @@ input:invalid {
 footer {
   margin-top: 4rem;
   min-height: 30vh;
+
   justify-content: space-between;
   align-items: flex-end;
   background-color: #06779066;
@@ -387,6 +403,7 @@ footer nav li {
   list-style: none;
 }
 
+
 footer nav li a {
   text-decoration: none;
   text-transform: uppercase;
@@ -396,6 +413,7 @@ footer nav li a {
 
 footer nav li a:hover {
   color: #027890;
+
 }
 
 footer pre {
@@ -403,6 +421,7 @@ footer pre {
   text-align-last: center;
   /*padding: 1rem;*/
   margin-bottom: 0.8rem;
+
 }
 
 footer img {
@@ -477,3 +496,4 @@ h4 i {
   border-style: solid;
   margin-top: 1rem;
 }
+

@@ -31,7 +31,7 @@ function modal() {
                 mainGrid.classList.toggle("main--no-grid");
                 sectionGrid.classList.toggle("section--no-grid"); 
                  body.classList.toggle("body--overlay");
-            }, false);            
+            }, false);     
             // display it by changing the classes
         }
     }
