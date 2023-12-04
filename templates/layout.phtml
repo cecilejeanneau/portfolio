@@ -35,24 +35,26 @@
             
             <nav>
                 <ul>
-                    <li><a href="home"><img src="./assets/logo.png" alt="logo"></a></li>
-                    <li><a href="a-propos">À propos</a></li>
-                    <li><a href="medias">Réalisations</a></li>
-                    <li><a href="contact">Contact</a></li>
+                    <li><a href="home" <?php if ($page === 'home') echo 'class="active"'; ?> ><img src="./assets/logo.png" alt="logo"></a></li>
+                    <li><a href="a-propos" <?php if ($page === 'a-propos') echo 'class="active"'; ?> >À propos</a></li>
+                    <li><a href="medias" <?php if ($page === 'medias') echo 'class="active"'; ?> >Réalisations</a></li>
+                    <li><a href="contact" <?php if ($page === 'contact') echo 'class="active"'; ?> >Contact</a></li>
+
                 </ul>
             </nav>
             
             <h1 class="header--h1__animation">Parade Ox</h1>
-            <p>Web Designer & Developer</p>
-            
+            <p>Webdesign & développement</p>   
+
             <ul>
                 <li><a href="https://github.com/cecilejeanneau"><span class="fa-brands fa-github"></span></a></li>
                 <li><a href="https://www.linkedin.com/in/c%C3%A9cile-jeanneau-344291205/"><span class="fa-brands fa-linkedin-in"></span></a></li>
                 <li><a href="https://www.behance.net/gallery/107491871/Portfolio"><span class="fa-brands fa-behance"></span></a></li>
             </ul>
             
-            <cite>Dark Mode or Not Dark Mode selon préférences du navigateur ou OS</cite>
-            
+            <!--<cite>Dark Mode or Not Dark Mode selon préférences du navigateur ou OS</cite>-->
+
+
         </header>
         
         <main class="main--grid">
@@ -70,13 +72,18 @@
                 </ul>
             </nav>
             
-            <pre>Développé et Designé par © Cécile JEANNEAU
-31 lourmel 35230 Noyal-châtillon-sur-seiche
-cecile.n.jeanneau@gmail.com
-06 63 64 31 03</pre>
+            <pre><a rel="license" href="#top"><img src="./assets/logo.png" alt="logo Parade Ox property"></a>
+06 63 64 31 03
 
-            <a rel="license" href="#top"><img alt="Parade Ox property" src="./assets/logo.png"></a>
-        
+cecile.n.jeanneau@gmail.com
+101 boulevard de Metz 35700 RENNES
+
+Développé et designé par ©Cécile JEANNEAU</pre>
+
+            <!--<a rel="license" href="#top"><img alt="Parade Ox property" src="./assets/logo.png"></a>-->
+            <p>Parade Ox</p>
+
+
         </footer>
         
         <script src="./assets/script.js"></script>

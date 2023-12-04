@@ -1,8 +1,7 @@
-<h1> Résultats </h1>
-
-<section class="section--grid">
+<section class="articles section--grid">
             <?php foreach($ajaxSearch as $idIndex=>$result) { ?>
-				<article class="container">
+				<article class="card">
+
 					<h3><?= htmlspecialchars($result['name']) ?></h3>
 					<figure>
 						<img id="<?= $idIndex ?>" class="img__modal--hidden" src="./uploads/<?= $result['file_name'] ?>.<?= $result['file_type'] ?>" alt="<?= $result['alt'] ?>" role="button">
